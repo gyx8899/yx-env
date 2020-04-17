@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "A personal scripts in Node for projects",
   "scripts": {
-    "node-12": "nvm use 12.16.1",
-    "git-rebase": "git-rebase.sh",
-    "github-user": "github-user.bat"
+    "nvm-12": "nvm use 12.16.1",
+    "git-pull-rebase": "git-pull-rebase.sh",
+    "git-global-user": "git-global-user.sh",
+    "git-local-user": "git-local-user.sh"
   },
   "repository": {
     "type": "git",

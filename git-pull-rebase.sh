@@ -1,22 +1,7 @@
 #!/usr/bin/env bash
 
-filterNonRepo(){
-  for folderName in 'env' '.idea';
-  do
-    if [ "$folderName" == "$1" ]; then
-      isRepo=false
-    fi
-  done
-  return 0
-}
-
-isRepo=true
-
 gitPullRebase(){
-  isRepo=true
-  filterNonRepo $1
-
-  if [ -d "$1" ] && [ ! -L "$1" ] && [ $isRepo = true ] ; then
+  if [ -d "$1" ] && [ ! -L "$1" ] && [ ! -d .git ] ; then
     cd $1
     echo $1
     hasDiff=false
@@ -31,13 +16,13 @@ gitPullRebase(){
       git stash pop
     fi
 
-    cd ..
-
 #    Divider
     echo ""
     echo ""
     echo ""
   fi
+
+  cd ..
 
   return 0
 }
