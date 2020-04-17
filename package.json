@@ -1,0 +1,20 @@
+{
+  "name": "yx-env",
+  "version": "0.1.0",
+  "description": "A personal scripts in Node for projects",
+  "scripts": {
+    "node-12": "nvm use 12.16.1",
+    "git-rebase": "git-rebase.sh",
+    "github-user": "github-user.bat"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gyx8899/yx-env.git"
+  },
+  "keywords": [
+    "YX",
+    "node"
+  ],
+  "author": "Kate Kuo",
+  "license": "MIT"
+}
