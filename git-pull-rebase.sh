@@ -4,6 +4,7 @@ gitPullRebase(){
   if [ -d "$1" ] && [ ! -L "$1" ] && [ ! -d .git ] ; then
     cd $1
     echo $1
+    echo ""
     hasDiff=false
     if [[ -n $(git diff HEAD --stat) ]]; then
       hasDiff=true
