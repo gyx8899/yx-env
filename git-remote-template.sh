@@ -30,6 +30,13 @@ echo $repositoryUrl
 
 git remote add template $repositoryUrl
 git fetch --all
-git merge template/master --allow-unrelated-histories
+
+echo Do you need auto merge: y: yes, others: no
+
+read -s -n 1 autoMerge
+
+if [[ $autoMerge == 'y' ]]; then
+  git merge template/master --allow-unrelated-histories
+fi
 
 #exec bash
