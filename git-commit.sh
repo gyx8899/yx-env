@@ -10,6 +10,7 @@ adds=""
 updates=""
 deletes=""
 unmerged=""
+renamed=""
 
 changes=0
 while read -r status filepath; do
@@ -34,6 +35,12 @@ while read -r status filepath; do
       deletes="$filename"
     else
       deletes+="/$filename"
+    fi
+  elif [ "${status}" == 'R' ]; then
+    if [ ! $renamed ]; then
+      renamed="$filename"
+    else
+      renamed+="/$filename"
     fi
   elif [ "${status}" == 'U' ]; then
     if [ ! $unmerged ]; then
@@ -64,6 +71,12 @@ if ((changes)); then
       commitmsg+=$newline
     fi
     commitmsg+="refactor($deletes): deleted;"
+  fi
+  if [[ $renamed != '' ]]; then
+    if [[ $commitmsg != '' ]]; then
+      commitmsg+=
+    fi
+    commitmsg+="refactor($renamed): renamed;"
   fi
   if [[ $unmerged != '' ]]; then
     if [[ $commitmsg != '' ]]; then
