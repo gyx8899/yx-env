@@ -2,7 +2,7 @@
 
 git add .
 
-if [[ ! -n $(git diff HEAD --stat) ]]; then
+if [[ -z $(git diff HEAD --stat) ]]; then
   exit
 fi
 
@@ -11,13 +11,13 @@ updates=""
 deletes=""
 unmerged=""
 
-let changes=0
-while read status filepath; do
-  let changes=1
+changes=0
+while read -r status filepath; do
+  changes=1
   filename="${filepath##*/}"
   echo "$status | $filename"
 
-  if [ ${status} == 'A' ]; then
+  if [ "${status}" == 'A' ]; then
     if [ ! $adds ]; then
       adds="$filename"
     else
