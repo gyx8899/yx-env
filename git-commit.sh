@@ -75,8 +75,8 @@ if ((changes)); then
   echo "$commitmsg"
 
   git commit -m "$commitmsg"
-  git pull --rebase
-  git push
+#  git pull --rebase
+#  git push
 fi
 
 #exec bash
