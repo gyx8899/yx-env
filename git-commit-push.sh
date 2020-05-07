@@ -14,4 +14,4 @@ if [[ $hasChange != '' ]]; then
   git push
 fi
 
-exec bash
+#exec bash
