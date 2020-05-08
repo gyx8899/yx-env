@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-gitPullRebase(){
+gitResetLocalUser(){
   if [ -d "$1" ] && [ ! -L "$1" ] && [ ! -d .git ] ; then
     cd $1
     echo $1
@@ -21,10 +21,10 @@ gitPullRebase(){
 
 cd ..
 if [ -n "$1" ]; then
-  gitPullRebase $1
+  gitResetLocalUser $1
 else
   for f in *; do
-    gitPullRebase $f
+    gitResetLocalUser $f
   done
 fi
 
