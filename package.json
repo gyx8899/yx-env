@@ -1,7 +1,7 @@
 {
   "name": "yx-env",
-  "version": "0.1.0",
-  "description": "A personal scripts in Node for projects",
+  "version": "0.1.1",
+  "description": "A personal scripts in Node/Shell/Dos for projects",
   "scripts": {
     "node: nvm-12": "nvm use 12.16.1",
     "view-port-80": "dos-netstat-80.bat",
