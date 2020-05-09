@@ -3,15 +3,15 @@
   "version": "0.1.1",
   "description": "A personal scripts in Node/Shell/Dos for projects",
   "scripts": {
-    "node: nvm-12": "nvm use 12.16.1",
-    "view-port-80": "dos-netstat-80.bat",
+    "git:pull-rebase": "git-pull-rebase.sh",
     "git:commit": "git-commit.sh",
     "git:commit-push": "git-commit-push.sh",
-    "git:pull-rebase": "git-pull-rebase.sh",
     "git:global-user": "git-global-user.sh",
     "git:local-user": "git-local-user.sh",
     "git:registry-taobao": "git-registry-taobao.sh",
-    "git:remote-template": "git-remote-template.sh"
+    "git:remote-template": "git-remote-template.sh",
+    "node: nvm-12": "nvm use 12.16.1",
+    "view-port-80": "dos-netstat-80.bat"
   },
   "repository": {
     "type": "git",
