@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 gitPullRebase(){
-  if [ -d "$1" ] && [ ! -L "$1" ] && [ ! -d .git ] ; then
+  # 1. 项目目录存在，2.非符号链接目录, 3.有 git 目录
+  if [ -d "$2/$1" ] && [ ! -L "$2/$1" ] && [ -d "$2/$1/.git" ] ; then
     cd $1
-    echo $1
+    echo "$1"
     echo ""
     hasDiff=false
     if [[ -n $(git diff HEAD --stat) ]]; then
@@ -20,7 +21,6 @@ gitPullRebase(){
 #    Divider
     echo ""
     echo ""
-    echo ""
   fi
 
   cd ..
@@ -30,11 +30,11 @@ gitPullRebase(){
 
 cd ..
 if [ -n "$1" ]; then
-  gitPullRebase $1
+  gitPullRebase $1 $PWD
 else
   for f in *; do
-    gitPullRebase $f
+    gitPullRebase $f $PWD
   done
 fi
 
-#exec bash
+exec bash
