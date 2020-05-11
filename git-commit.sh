@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ "$1" ]; then
+  cd ../$1
+fi
+
 git add .
 
 if [[ -z $(git diff HEAD --stat) ]]; then
