@@ -12,6 +12,8 @@ elif [[ $(git status) == *"Your branch is ahead of"* ]]; then
   fi
 fi
 
+echo "before pull & push"
+
 if [[ $hasChange != '' ]]; then
   git pull --rebase
   git push
