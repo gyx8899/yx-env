@@ -19,4 +19,5 @@ if [[ $hasChange != '' ]]; then
   git push
 fi
 
+sleep 0.2&
 #exec bash
