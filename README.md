@@ -26,11 +26,8 @@ nvm use 12.16.1
 ##### Shell: Set remote template (@daybyday/npm-template)
 [git-remote-template.sh](./git-remote-template.sh)
 
-##### Shell: git auto commit which just comment with filenames and change types
-[git-commit.sh](./git-commit.sh)
-
-##### Shell: git auto commit + push
-[git-commit-push.sh](./git-commit-push.sh)
+##### Shell: git auto commit + push, comment with filenames and change types
+[git-push.sh](./git-push.sh)
 
 ## Dos script
 
