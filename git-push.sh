@@ -78,13 +78,13 @@ if ((changes)); then
   fi
   if [[ $renamed != '' ]]; then
     if [[ $commitmsg != '' ]]; then
-      commitmsg+=
+      commitmsg+=$newline
     fi
     commitmsg+=":pencil2: refactor($renamed): renamed;"
   fi
   if [[ $unmerged != '' ]]; then
     if [[ $commitmsg != '' ]]; then
-      commitmsg+=
+      commitmsg+=$newline
     fi
     commitmsg+=":bug: fix($unmerged): unmerged;"
   fi
