@@ -62,38 +62,38 @@ if ((changes)); then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+="feature($adds): added;"
+    commitmsg+=":new: feature($adds): added;"
   fi
   if [[ $updates != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+="chore($updates): updated;"
+    commitmsg+=":art: chore($updates): updated;"
   fi
   if [[ $deletes != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+="refactor($deletes): deleted;"
+    commitmsg+=":fire: refactor($deletes): deleted;"
   fi
   if [[ $renamed != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=
     fi
-    commitmsg+="refactor($renamed): renamed;"
+    commitmsg+=":pencil2: refactor($renamed): renamed;"
   fi
   if [[ $unmerged != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=
     fi
-    commitmsg+="fix($unmerged): unmerged;"
+    commitmsg+=":bug: fix($unmerged): unmerged;"
   fi
 
   echo "$commitmsg"
 
   git commit -m "$commitmsg"
-#  git pull --rebase
-#  git push
+  git pull --rebase
+  git push
 fi
 
-#exec bash
+exit
