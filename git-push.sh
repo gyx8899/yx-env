@@ -7,7 +7,9 @@ fi
 git add .
 
 if [[ -z $(git diff HEAD --stat) ]]; then
-  exit
+  if [[ -z $(git log origin/master..HEAD) ]]; then
+     exit
+  fi
 fi
 
 adds=""
@@ -92,8 +94,9 @@ if ((changes)); then
   echo "$commitmsg"
 
   git commit -m "$commitmsg"
-  git pull --rebase
-  git push
 fi
+
+git pull --rebase
+git push
 
 exit
