@@ -1,0 +1,46 @@
+{
+  "name": "IT Quotes",
+  "version": "1.0.0",
+  "quotes": [
+    {
+      "author": "",
+      "author-cn": "林纳斯",
+      "author-intro": "Linux 系统的缔造者",
+      "quote": "Talk is cheap, show me the code"
+    },
+    {
+      "author": "",
+      "author-cn": "乔布斯",
+      "author-intro": "",
+      "quote": "Stay hungry, stay foolish"
+    },
+    {
+      "author": "",
+      "author-cn": "",
+      "author-intro": "",
+      "quote": "Done is better than perfect",
+      "quote-intro": "Facebook 办公室标语"
+    },
+    {
+      "author": "Werner Vogels",
+      "author-cn": "沃纳·威格尔",
+      "author-intro": "",
+      "quote": "You build it, you run it",
+      "quote-intro": "谁构建，谁运维"
+    },
+    {
+      "author": "Donald Knuth",
+      "author-cn": "高德纳",
+      "author-intro": "",
+      "quote": "Premature optimization is the root of all evil",
+      "quote-intro": "过早优化是万恶之源"
+    },
+    {
+      "author": "",
+      "author-cn": "",
+      "author-intro": "",
+      "quote": "Eating your own dog food",
+      "quote-intro": "英语俚语：吃你自己的狗粮"
+    }
+  ]
+}
