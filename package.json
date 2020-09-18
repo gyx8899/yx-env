@@ -10,7 +10,8 @@
     "git:registry-taobao": "git-registry-taobao.sh",
     "git:remote-template": "git-remote-template.sh",
     "node: nvm-12": "nvm use 12.16.1",
-    "view-port-80": "dos-netstat-80.bat"
+    "view-port-80": "dos-netstat-80.bat",
+    "node: run js": "node assets/scripts/run-test.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,10 @@
     "node"
   ],
   "author": "Kate Kuo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5"
+  }
 }
