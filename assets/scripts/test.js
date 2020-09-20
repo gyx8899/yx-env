@@ -9,4 +9,10 @@ function writeDataToFile(fileDirName, data) {
   });
 }
 
-writeDataToFile('./assets/data/test.json', JSON.stringify({a: '1234', b: 234}, null, 4));
+function main(args) {
+  console.log(args);
+  writeDataToFile('./assets/data/test.json', JSON.stringify({a: args[0], b: args[1]},null, 4));
+}
+
+// export default main;
+module.exports = main;

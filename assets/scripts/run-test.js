@@ -26,17 +26,5 @@ console.log(getNodeArgs());
 require('@babel/register');
 
 // require(getNodeArgs().filepath);
-require('./test.js');
-// require(getNodeArgs().filepath);
-
-// writeDataToFile('./i18n.json', JSON.stringify({a: '1234', b: 234}, null, 4));
-// console.log('Hello, run js in node');
-
-// function writeDataToFile(fileDirName, data) {
-//   fs.writeFile(fileDirName, data, (err) => {
-//     // eslint-disable-next-line no-console
-//     console.log(`${fileDirName}: ${err ? 'Write File failed!' : 'Saved successfully!'}`);
-//   });
-// }
-//
-// writeDataToFile('./i18n.json', JSON.stringify({a: '1234', b: 234}, null, 4));
+var main = require('./test.js');
+main(Object.values(getNodeArgs()));

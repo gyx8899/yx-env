@@ -11,7 +11,8 @@
     "git:remote-template": "git-remote-template.sh",
     "node: nvm-12": "nvm use 12.16.1",
     "view-port-80": "dos-netstat-80.bat",
-    "node: run js": "node assets/scripts/run-test.js"
+    "node: run js": "node assets/scripts/run-test.js",
+    "node: run test": "node-es6.sh run-test param1 param2"
   },
   "repository": {
     "type": "git",
