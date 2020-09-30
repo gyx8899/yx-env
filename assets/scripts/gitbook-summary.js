@@ -1,5 +1,5 @@
 const cgf = require("changed-git-files");
-const {readDataFromFile, writeDataToFile, iterateObject} = require('@daybyday/yx-node');
+const {readDataFromFile, writeDataToFile, getDirectoryList} = require('@daybyday/yx-node');
 
 const readmeFilePath = './README.md';
 const summaryFilePath = './SUMMARY.md';
@@ -42,7 +42,6 @@ function generateReadme(_mdConfig, _readMeConfig) {
 }
 
 function updateReadMeAndSummary(isSummary, project) {
-	if (isSummary) {
 		let content = `# Summary\n\n[${project}](README.md)\n`;
 		const nonLeaf = function (key, level, value) {
 			if (value.date) {
@@ -60,10 +59,9 @@ function updateReadMeAndSummary(isSummary, project) {
 			}
 		};
 
-
+	getDirectoryList();
 
 		writeDataToFile(summaryFilePath, content);
-	}
 }
 
 function main([project]) {
