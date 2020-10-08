@@ -1,0 +1,27 @@
+# File: .github/workflows/repo-sync.yml
+name: repo-sync
+on:
+  schedule:
+    # Sync repo once every two days
+    - cron: '1 0,15 * * *'
+  workflow_dispatch:
+
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        if: env.PAT
+        with:
+          persist-credentials: false
+      - name: repo-sync
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          # source https, such as: https://github.com/gyx8899/yx-env.git
+          source_repo: ""
+          source_branch: "master"
+          destination_branch: "master"
+          github_token: ${{ secrets.PAT }}
