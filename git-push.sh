@@ -42,7 +42,7 @@ while read -r status filepath; do
     else
       deletes+="/$filename"
     fi
-  elif [ "${status}" == 'R095' ]; then
+  elif [ "${status}" == 'R083' ] || [ "${status}" == 'R095' ]; then
     if [ ! $renamed ]; then
       renamed="$filename"
     else
