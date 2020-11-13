@@ -17,6 +17,7 @@ updates=""
 deletes=""
 unmerged=""
 renamed=""
+moved=""
 
 changes=0
 while read -r status filepath; do
@@ -54,6 +55,12 @@ while read -r status filepath; do
     else
       unmerged+="/$filename"
     fi
+  elif [ "${status}" == 'R100' ]; then
+    if [ ! $moved ]; then
+      moved="$filename"
+    else
+      moved+="/$filename"
+    fi
   fi
 done < <(git diff HEAD --name-status)
 
@@ -89,6 +96,12 @@ if ((changes)); then
       commitmsg+=$newline
     fi
     commitmsg+=":bug: fix($unmerged): unmerged;"
+  fi
+  if [[ $moved != '' ]]; then
+    if [[ $commitmsg != '' ]]; then
+      commitmsg+=$newline
+    fi
+    commitmsg+=":fire: refactor($unmerged): moved to different folder;"
   fi
 
   echo "$commitmsg"
