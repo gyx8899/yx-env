@@ -103,7 +103,7 @@ if ((changes)); then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+="✂ 📋 refactor($copied): copied;"
+    commitmsg+="📋 refactor($copied): copied;"
   fi
 
   echo "$commitmsg"
