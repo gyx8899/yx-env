@@ -11,39 +11,41 @@ if [[ -z $(git diff HEAD --stat) ]]; then
      exit
   fi
 fi
+statusX=""
 
 adds=""
 updates=""
 deletes=""
 unmerged=""
 renamed=""
-moved=""
+copied=""
 
 changes=0
 while read -r status filepath; do
   changes=1
   filename="${filepath##*/}"
-  echo "$status | $filename"
+  statusX=${status:0:1}
+  echo "$statusX: $status | $filename"
 
-  if [ "${status}" == 'A' ]; then
+  if [ "${statusX}" == 'A' ]; then
     if [ ! $adds ]; then
       adds="$filename"
     else
       adds+="/$filename"
     fi
-  elif [ "${status}" == 'M' ]; then
+  elif [ "${statusX}" == 'M' ]; then
     if [ ! $updates ]; then
       updates="$filename"
     else
       updates+="/$filename"
     fi
-  elif [ "${status}" == 'D' ]; then
+  elif [ "${statusX}" == 'D' ]; then
     if [ ! $deletes ]; then
       deletes="$filename"
     else
       deletes+="/$filename"
     fi
-  elif [ "${status}" == 'R083' ] || [ "${status}" == 'R095' ]; then
+  elif [ "${statusX}" == 'R' ]; then
     if [ ! $renamed ]; then
       renamed="$filename"
     else
@@ -55,11 +57,11 @@ while read -r status filepath; do
     else
       unmerged+="/$filename"
     fi
-  elif [ "${status}" == 'R100' ]; then
-    if [ ! $moved ]; then
-      moved="$filename"
+  elif [ "${status}" == 'c' ]; then
+    if [ ! $copied ]; then
+      copied="$filename"
     else
-      moved+="/$filename"
+      copied+="/$filename"
     fi
   fi
 done < <(git diff HEAD --name-status)
@@ -97,11 +99,11 @@ if ((changes)); then
     fi
     commitmsg+=":bug: fix($unmerged): unmerged;"
   fi
-  if [[ $moved != '' ]]; then
+  if [[ $copied != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+=":fire: refactor($unmerged): moved to different folder;"
+    commitmsg+=":fire: refactor($copied): copied;"
   fi
 
   echo "$commitmsg"
