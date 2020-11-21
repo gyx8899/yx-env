@@ -8,7 +8,7 @@ git pull --unshallow
 git remote add upstream $2
 git fetch upstream
 git checkout master
-git merge --no-edit upstream/master --allow-unrelated-histories
+git merge --no-edit upstream/master --allow-unrelated-histories --strategy-option theirs
 
 git add .
 
