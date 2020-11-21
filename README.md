@@ -29,6 +29,23 @@ nvm use 12.16.1
 ##### Shell: git auto commit + push, comment with filenames and change types
 [git-push.sh](./git-push.sh)
 
+```metadata json
+// Demo script in exam-app
+"scripts": {
+   "git-push": "cd ../yx-env && git-push.sh exam-app"
+}
+```
+
+##### Shell: git merge remote repo
+[git-merge-remote.sh](./git-merge-remote.sh)
+
+```metadata json
+// Demo script in yx-jd
+"scripts": {
+   "git-merge-remote": "cd ../yx-env && git-merge-remote.sh yx-jd https://github.com/lxk0301/jd_scripts.git"
+}
+```
+
 ## Dos script
 
 ##### View port 80's using info
