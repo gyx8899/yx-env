@@ -9,6 +9,11 @@ YX-Env: A personal scripts in Node/Shell/Dos for projects
 nvm use 12.16.1
 ```
 
+##### Node: Run es6 file script
+```shell script
+"node: run js": "node assets/scripts/run-test.js",
+```
+
 ## Git Scripts
 
 ##### Shell: Git pull rebase for the parent folder's sub-folder repos
