@@ -11,15 +11,15 @@ gitPullRebase(){
 #    git config --local user.name
 #    git config --local user.email
 
-    git config --local user.name "Yingxin Guo"
-    git config --local user.email "yingxin.guo@xxxxx.com.cn"
+    git config --local user.name "[user]"
+    git config --local user.email "[user]@xxxxx.com"
 
 #    git config --local --unset user.name
 #    git config --local --unset user.email
 
 #    Divider
-    echo "user.name Yingxin Guo"
-    echo "user.email yingxin.guo@xxxxx.com.cn"
+    echo "user.name [user]"
+    echo "user.email [user]@xxxxx.com"
     echo ""
   fi
 
