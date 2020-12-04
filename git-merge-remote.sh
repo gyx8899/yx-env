@@ -4,8 +4,8 @@ if [ "$1" ]; then
   cd ../$1
 fi
 
-git pull --unshallow
-#git remote rm upstream
+#git pull --unshallow
+git fetch --depth=10000
 git remote remove upstream
 git remote add upstream $2
 git fetch upstream
