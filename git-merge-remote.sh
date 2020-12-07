@@ -5,7 +5,8 @@ if [ "$1" ]; then
 fi
 
 git pull --unshallow
-git remote rm upstream
+#git remote rm upstream
+git remote remove upstream
 git remote add upstream $2
 git fetch upstream
 git checkout master
