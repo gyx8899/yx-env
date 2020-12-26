@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# https://betterdev.blog/minimal-safe-bash-script-template/
 
 set -Eeuo pipefail
 trap cleanup SIGINT SIGTERM ERR EXIT
