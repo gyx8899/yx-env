@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# github-cheat-sheet.md
+# https://gist.github.com/spences10/5c492e197e95158809a83650ff97fc3a
+
 if [ "$1" ]; then
   cd ../$1
 fi
