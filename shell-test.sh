@@ -10,4 +10,5 @@ if [ "${REPLY}" == 'Current branch master is up to date.' ]; then
   exit
 else
   echo "REPLY = '$REPLY'!"
+  exec bash
 fi
