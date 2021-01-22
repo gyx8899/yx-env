@@ -4,12 +4,14 @@
 
 git pull --rebase
 # Current branch master is up to date.
-read -r gitPullRebaseInfo
 
-if [ "${gitPullRebaseInfo}" == 'Current branch master is up to date.' ]; then
-  git push
-  exit
-else
-  echo "gitPullRebaseInfo = 'gitPullRebaseInfo'!"
-  exec bash
-fi
+while read -r gitPullRebaseInfo; do
+  echo "$gitPullRebaseInfo"
+  if [ "${gitPullRebaseInfo}" == 'Current branch master is up to date.' ]; then
+    git push
+    exit
+  else
+    echo "Something wrong! Please have a check."
+    exec bash
+  fi
+done < <(git pull --rebase)
