@@ -4,11 +4,12 @@
 
 git pull --rebase
 # Current branch master is up to date.
+read -r gitPullRebaseInfo
 
-if [ "${REPLY}" == 'Current branch master is up to date.' ]; then
+if [ "${gitPullRebaseInfo}" == 'Current branch master is up to date.' ]; then
   git push
   exit
 else
-  echo "REPLY = '$REPLY'!"
+  echo "gitPullRebaseInfo = 'gitPullRebaseInfo'!"
   exec bash
 fi
