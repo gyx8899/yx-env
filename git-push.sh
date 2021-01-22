@@ -112,6 +112,9 @@ if ((changes)); then
 fi
 
 git pull --rebase
+
+# TODO check rebase successfull or not, maybe have conflict
+
 git push
 
 exit
