@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
 
-gitPullRebase(){
+gitSetConfig(){
+  # [ ! -d .git ] 当前目录是 git 目录
   if [ -d "$1" ] && [ ! -L "$1" ] && [ ! -d .git ] ; then
     cd $1
-    echo $1
 
-#    git config user.name
-#    git config user.email
+    if [ -d "$2" ] && [ ! -L "$2" ] &&[ -d "$3" ] && [ ! -L "$3" ] ; then
+      echo ""
+      echo "Before update local user.name :" $(git config --local user.name)
+      echo "Before update local user.email:" $(git config --local user.email)
 
-#    git config --local user.name
-#    git config --local user.email
+      git config --local user.name $2
+      git config --local user.email $3
 
-    git config --local user.name "[user]"
-    git config --local user.email "[user]@xxxxx.com"
+  #    git config --local --unset user.name
+  #    git config --local --unset user.email
 
-#    git config --local --unset user.name
-#    git config --local --unset user.email
-
-#    Divider
-    echo "user.name [user]"
-    echo "user.email [user]@xxxxx.com"
-    echo ""
+  #    Divider
+      echo ""
+      echo "After update local user.name  :" $(git config --local user.name)
+      echo "After update local user.email :" $(git config --local user.email)
+    fi
   fi
 
   cd ..
@@ -31,11 +31,11 @@ gitPullRebase(){
 currentFolder=$(basename $PWD)
 cd ..
 if [ -n "$1" ]; then
-  gitPullRebase $1
+  gitSetConfig $1 $2 $3
 else
   for f in *; do
     if [[ $f != $currentFolder ]]; then
-        gitPullRebase $f
+        gitSetConfig $f
     fi
   done
 fi
