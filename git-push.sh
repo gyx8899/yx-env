@@ -113,8 +113,13 @@ fi
 
 git pull --rebase
 
-# TODO check rebase successfull or not, maybe have conflict
-
-git push
-
-exit
+git push | (
+    unset gitPushStatus
+    while read -r line; do
+      echo "$line"
+      case "$line" in
+      *Enumerating*)  gitPushStatus='true' ; ;;
+      esac
+    done
+    [ -n "$gitPushStatus" ] && read -rsp "Error: git push" && exit 1
+)
