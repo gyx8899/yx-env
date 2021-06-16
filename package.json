@@ -12,7 +12,10 @@
     "node: nvm-12": "nvm use 12.16.1",
     "view-port-80": "dos-netstat-80.bat",
     "node: run js": "node assets/scripts/run-test.js",
-    "node: run test": "node-es6.sh run-test param1 param2"
+    "node: run test": "node-es6.sh run-test param1 param2",
+    "node-param: set": "set arg1=123 & set arg2=456 & node ./assets/scripts/node-param.js & set argn=收不到或者无效",
+    "node-param: cross-env": "cross-env arg1=123 arg2=456 node ./assets/scripts/node-param.js argn=收不到或者无效",
+    "node-param: yargs": "node ./assets/scripts/node-param.js --arg1 123 --arg2 456 -a 789 -a 2 -a 3 --argn 收到且有效"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,8 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "@babel/register": "^7.11.5"
+    "@babel/register": "^7.11.5",
+    "cross-env": "^7.0.3",
+    "yargs": "^17.0.1"
   }
 }
