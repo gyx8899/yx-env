@@ -1,12 +1,15 @@
 const yargs = require("yargs");
 const { website, actionType, actionFile, headless } = yargs.argv;
+
+// http://puppeteerjs.com/ puppeteer.js中文网
 const puppeteer = require("puppeteer");
+
 (async () => {
     const lanchOptions = {
         // args: ["--no-sandbox", "--disable-setuid-sandbox"],
     };
     if (headless) {
-        lanchOptions.headless = !(headless === "false");
+        lanchOptions.headless = !(headless === "false"); // default is true
     }
 
     const browser = await puppeteer.launch(lanchOptions);
@@ -50,6 +53,7 @@ const puppeteer = require("puppeteer");
                     deviceScaleFactor: window.devicePixelRatio,
                 };
             });
+            console.log("Dimensions:", dimenisions);
             break;
         default:
         //
