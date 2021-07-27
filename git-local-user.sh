@@ -48,4 +48,4 @@ else
   done
 fi
 
-exec bash
+# exec bash
