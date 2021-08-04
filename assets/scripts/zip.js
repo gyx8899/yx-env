@@ -1,5 +1,9 @@
-const archiver = require("archiver");
 const fs = require("fs");
+
+// 压缩文件(夹)
+// #1 使用 node 组件
+// Dev dependency
+const archiver = require("archiver");
 const yargs = require("yargs");
 
 const { sourceDir, outFile, hasRoot } = yargs.argv;
@@ -22,3 +26,7 @@ function zipDirectory(source, out) {
         archive.finalize();
     });
 }
+
+// #2 使用 shell 执行电脑上的压缩软件，如 7-zip
+// "C:\Program Files\7-Zip\7z.exe" a outFile sourceDir
+// "C:\Program Files\7-Zip\7z.exe" a ../dist.zip ../dist

@@ -1,57 +1,65 @@
 # yx-env
+
 YX-Env: A personal scripts in Node/Shell/Dos for projects
 
 ## Node Scripts
 
-##### Node: NVM switch node version
+### Node: NVM switch node version
 
 ```shell script
 nvm use 12.16.1
 ```
 
-##### Node: Run es6 file script
+### Node: Run es6 file script
+
 ```shell script
 "node: run js": "node assets/scripts/run-test.js",
 ```
 
 ## Git Scripts
 
-##### Shell: Git pull rebase for the parent folder's sub-folder repos
-[git-pull-rebase.sh](./git-pull-rebase.sh)
+### Shell: Git pull rebase for the parent folder's sub-folder repos
 
-##### Shell: Set git's global user
-[git-global-user.sh](./git-global-user.sh)
+[git-pull-rebase.sh](.assets/shell/git-pull-rebase.sh)
 
-##### Shell: Set git's local user for the parent folder's sub-folder repos
-[git-local-user.sh](./git-local-user.sh)
+### Shell: Set git's global user
 
-##### Shell: Set registry with Tao bao
-[git-registry-taobao.sh](./git-registry-taobao.sh)
+[git-global-user.sh](.assets/shell/git-global-user.sh)
 
-##### Shell: Set remote template (@daybyday/npm-template)
-[git-remote-template.sh](./git-remote-template.sh)
+### Shell: Set git's local user for the parent folder's sub-folder repos
 
-##### Shell: git auto commit + push, comment with filenames and change types
-[git-push.sh](./git-push.sh)
+[git-local-user.sh](.assets/shell/git-local-user.sh)
+
+### Shell: Set registry with Tao bao
+
+[git-registry-taobao.sh](.assets/shell/git-registry-taobao.sh)
+
+### Shell: Set remote template (@daybyday/npm-template)
+
+[git-remote-template.sh](.assets/shell/git-remote-template.sh)
+
+### Shell: git auto commit + push, comment with filenames and change types
+
+[git-push.sh](.assets/shell/git-push.sh)
 
 ```metadata json
-// Demo script in exam-app
 "scripts": {
    "git-push": "cd ../yx-env && git-push.sh exam-app"
 }
 ```
 
-##### Shell: git merge remote repo
-[git-merge-remote.sh](./git-merge-remote.sh)
+### Shell: git merge remote repo
+
+[git-merge-remote.sh](.assets/shell/git-merge-remote.sh)
 
 ```metadata json
-// Demo script in yx-jd
 "scripts": {
-   "git-merge-remote": "cd ../yx-env && git-merge-remote.sh yx-jd https://github.com/lxk0301/jd_scripts.git"
+   "git-merge-remote": "cd ../yx-env && git-merge-remote.sh yx-jd https://github.com/xxx/xxx.git"
 }
 ```
 
 ## Dos script
 
-##### View port 80's using info
-[dos-netstat-80.bat](./dos-netstat-80.bat)
+### View port 80's using info
+
+[dos-netstat-80.bat](.assets/bat/dos-netstat-80.bat)
