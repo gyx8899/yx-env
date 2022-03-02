@@ -16,14 +16,15 @@ function zipDirectory(source, out) {
     const stream = fs.createWriteStream(out);
 
     return new Promise((resolve, reject) => {
-        // /** if false is passed for directory destpath, the path of a chunk of data in the archive is set to the root */
-        archive
-            .directory(source, hasRoot === "true")
-            .on("error", (err) => reject(err))
-            .pipe(stream);
+        stream.on("close", resolve);
+        stream.on('end', resolve)
 
-        stream.on("close", () => resolve());
-        archive.finalize();
+        // /** if false is passed for directory destpath, the path of a chunk of data in the archive is set to the root */
+        archive.on("error", reject)
+            .on('warning', console.warn)
+            .pipe(stream)
+        archive.directory(source, hasRoot === "true")
+            .finalize();
     });
 }
 
