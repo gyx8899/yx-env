@@ -14,6 +14,8 @@ function zipDirectory(source, out) {
     // https://www.npmjs.com/package/archiver
     const archive = archiver("zip", { zlib: { level: 9 } });
     const stream = fs.createWriteStream(out);
+    console.log(`zipDirectory: current dir ${__dirname}`)
+    console.log(`zipDirectory: from ${source} to ${out}`)
 
     return new Promise((resolve, reject) => {
         stream.on("close", resolve);
