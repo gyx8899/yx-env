@@ -27,6 +27,12 @@ while read -r status filepath; do
   statusX=${status:0:1}
   echo "$statusX: $status | $filename"
 
+  if [[ $2 == 'clean' ]]; then
+    echo "0000 $filename"
+    filename=$(echo $filename | tr '[:upper:]' '[:lower:]')
+    echo "1111 $filename"
+  fi
+
   if [ "${statusX}" == 'A' ]; then
     if [ ! $adds ]; then
       adds="$filename"
@@ -73,37 +79,55 @@ if ((changes)); then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+=":new: feature($adds): added;"
+    if [[ $2 != 'clean' ]]; then
+      commitmsg+=":new: "
+    fi
+    commitmsg+="feature: $adds added;"
   fi
   if [[ $updates != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+=":art: chore($updates): updated;"
+    if [[ $2 != 'clean' ]]; then
+      commitmsg+=":art: "
+    fi
+    commitmsg+="chore: $updates updated;"
   fi
   if [[ $deletes != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+=":fire: refactor($deletes): deleted;"
+    if [[ $2 != 'clean' ]]; then
+      commitmsg+=":fire: "
+    fi
+    commitmsg+="refactor: $deletes deleted;"
   fi
   if [[ $renamed != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+=":pencil2: refactor($renamed): renamed;"
+    if [[ $2 != 'clean' ]]; then
+      commitmsg+=":pencil2: "
+    fi
+    commitmsg+="refactor: $renamed renamed;"
   fi
   if [[ $unmerged != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+=":bug: fix($unmerged): unmerged;"
+    if [[ $2 != 'clean' ]]; then
+      commitmsg+=":bug: "
+    fi
+    commitmsg+="fix: $unmerged unmerged;"
   fi
   if [[ $copied != '' ]]; then
     if [[ $commitmsg != '' ]]; then
       commitmsg+=$newline
     fi
-    commitmsg+="📋 refactor($copied): copied;"
+    if [[ $2 != 'clean' ]]; then
+      commitmsg+="📋 "
+    fi
+    commitmsg+="refactor: $copied copied;"
   fi
 
   echo "$commitmsg"
@@ -121,5 +145,5 @@ git push | (
       *Enumerating*)  gitPushStatus='true' ; ;;
       esac
     done
-    [ -n "$gitPushStatus" ] && read -rsp "Error: git push" && exit 1
+    [ -n "$gitPushStatus" ] && read -rsp "Error: git push" && exit 0
 )

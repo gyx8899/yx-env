@@ -50,6 +50,28 @@ git status | (
     [ -n "$bits" ] && echo " $bits" || echo
 )
 
+echo "stRING" | awk '{print toupper($0)}'
+echo "STRING" | tr "[A-Z]" "[a-z]" # upper to lower
+echo "StrinNG" | sed 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' #lower to upper
+
+# fileName="heLLo"
+# lowerstr=tr '[A-Z]' '[a-z]' < $fileName
+# echo $lowerstr
+
+awk '{print tolower($0)}' <<<"DEMO"
+var="Foo BAR"
+awk '{print tolower($0)}' <<<"${var}"
+echo "$var" | awk '{print tolower($0)}'
+
+# To Save in the variable use below
+var1=$(echo loWer to Upper | tr '[:lower:]' '[:upper:]')
+echo "var1: $var1"
+var2=$(echo uPPer to Lower | tr '[:upper:]' '[:lower:]')
+echo "var2: $var2"
+var3="aBc, Def"
+var3=$(echo $var3 | tr '[:upper:]' '[:lower:]')
+echo "var3: $var3"
+
 echo "End"
 
 exec bash
