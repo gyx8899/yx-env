@@ -28,9 +28,7 @@ while read -r status filepath; do
   echo "$statusX: $status | $filename"
 
   if [[ $2 == 'clean' ]]; then
-    echo "0000 $filename"
     filename=$(echo $filename | tr '[:upper:]' '[:lower:]')
-    echo "1111 $filename"
   fi
 
   if [ "${statusX}" == 'A' ]; then
