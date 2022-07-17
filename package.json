@@ -1,6 +1,6 @@
 {
   "name": "yx-env",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A personal scripts in Node/Shell/Dos for projects",
   "scripts": {
     "git:push": "node run-script.js --fileName=git-push.sh",
