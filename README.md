@@ -16,6 +16,15 @@ nvm use 12.16.1
 "node: run js": "node assets/scripts/run-test.js",
 ```
 
+### Node Run bash
+
+```shell script
+# "git:push": "node run-script.js --fileName=git-push.sh",
+# node run-script.js --fileName=git-push.sh
+# node ./assets/scripts/add-timestamp.js file=. && cd ../yx-env && npm run git:push -- --1=blog
+# cd ../yx-env && npm run git:push -- --1=blog --2=clean
+```
+
 ## Git Scripts
 
 ### Shell: Git pull rebase for the parent folder's sub-folder repos
