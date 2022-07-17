@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "A personal scripts in Node/Shell/Dos for projects",
   "scripts": {
+    "yx-commit": "node run-bash.js --fileName=./git-push.sh --b=123",
     "git:push": "git-push.sh",
     "git:push-mac": "bash git-push.sh",
     "git:pull-rebase": "cd ./assets/shell && git-pull-rebase.sh",
